@@ -5,25 +5,25 @@ const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 const User = require('../models/user');
 const Review = require('../models/review');
+const mongoose = require('mongoose')
 
 // Review Create
 router.post('/create', passport.authenticate('jwt', {session:false}), (req, res, next) => {
   let newReview = new Review({
-    title: req.body.title,
-    body: req.body.body,
-    user: req.user._id,
+    title: new String(req.body.title),
+    body: new String(req.body.body),
+    user: mongoose.Types.ObjectId(req.user._id),
     rating: req.body.rating
   });
 
  Review.addReview(newReview, (err, review) => {
     if(err) {
-      res.json({success: false, msg:'Failed to create review'});
+      res.json({success: false, msg:'Failed to create review ' + err});
     } else {
       res.json({success: true, msg:'Review created'});
     }
   });
 
-  //res.send(req.user._id);
 });
 
 module.exports = router;
