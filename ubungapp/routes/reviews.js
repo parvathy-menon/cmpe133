@@ -26,4 +26,14 @@ router.post('/create', passport.authenticate('jwt', {session:false}), (req, res,
 
 });
 
+
+// delete review by id
+router.delete('/delete/:_id', passport.authenticate('jwt', {session:false}), function(req, res, next){
+  Review.findOneAndRemove({_id: req.params._id}, function(err,review) {
+    if (err) console.log(err);
+    res.json({success:true, msg: review});
+  });
+});
+
+
 module.exports = router;

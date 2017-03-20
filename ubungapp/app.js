@@ -23,6 +23,7 @@ const app = express();
 
 const users = require('./routes/users');
 const reviews = require('./routes/reviews');
+const workouts = require('./routes/workouts');
 
 //Port number
 const port = 3000;
@@ -44,15 +45,18 @@ require('./config/passport')(passport);
 
 app.use('/users', users);
 app.use('/reviews', reviews);
+app.use('/workouts', workouts);
 
 //Index Route
 app.get('/', (req, res) => {
   res.send('Invalid Endpoint');
 });
 
+/*  TODO temp removed for test the GET
 app.get('*', () => {
   res.sendFile(path.join(__dirname, 'public/index.html'))
 });
+*/
 
 //Start Server
 app.listen(port, () => {
