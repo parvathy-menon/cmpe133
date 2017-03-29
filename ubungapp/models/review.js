@@ -7,18 +7,27 @@ const ReviewSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  
   body: {
     type: String,
     required: true
   },
+
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
+
+  workout: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Workout'
+  },
+
   rating: {
     type: Number,
     required: true
   },
+  
   createdAt: {
     type: Date,
     default: Date.now()

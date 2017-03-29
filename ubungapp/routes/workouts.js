@@ -15,7 +15,8 @@ router.post('/create', passport.authenticate('jwt', {session:false}),(req, res, 
     title: req.body.title,
     body: req.body.body,
     user: mongoose.Types.ObjectId(req.user._id),
-    workout: mongoose.Types.ObjectId(req.user._id),
+    cardioExercises: req.body.cardioExercises,
+    liftingExercises: req.body.liftingExercises,
     created_at: new Date().toString()
   });
 
@@ -24,7 +25,7 @@ router.post('/create', passport.authenticate('jwt', {session:false}),(req, res, 
       res.json({success: false, msg:'Failed to create workout'});
       console.log(err);
     } else {
-      res.json({success: true, msg:'Workout created'});
+      res.json({success: true, msg:newWorkout});
     }
   });
 });
@@ -40,7 +41,7 @@ router.get('/workout/:title', (req,res) => {
 
 
 // display all workout
-router.get('/workouts', (req, res, next) => {
+router.get('/all', (req, res, next) => {
   Workout.find({}, function(err, workout){
     if (err) return console.log(err);
     res.json({success:true, msg: workout});

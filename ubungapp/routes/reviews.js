@@ -13,6 +13,7 @@ router.post('/create', passport.authenticate('jwt', {session:false}), (req, res,
     title: new String(req.body.title),
     body: new String(req.body.body),
     user: mongoose.Types.ObjectId(req.user._id),
+    workout: mongoose.Types.ObjectId(req.body.workout._id),
     rating: req.body.rating
   });
 
@@ -20,12 +21,20 @@ router.post('/create', passport.authenticate('jwt', {session:false}), (req, res,
     if(err) {
       res.json({success: false, msg:'Failed to create review ' + err});
     } else {
-      res.json({success: true, msg:'Review created'});
+      res.json({success: true, msg:newReview});
     }
   });
 
 });
 
+//search review by title
+router.get('/review/:title', (req,res) => {
+  Workout.find({title: req.params.title}, function(err, review){
+    if (err) console.log(err);
+    console.log("Freaking done");
+    res.json({success:true, msg: review});
+  });
+});
 
 // delete review by id
 router.delete('/delete/:_id', passport.authenticate('jwt', {session:false}), function(req, res, next){
