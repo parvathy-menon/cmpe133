@@ -34,7 +34,6 @@ router.post('/create', passport.authenticate('jwt', {session:false}),(req, res, 
 router.get('/workout/:title', (req,res) => {
   Workout.find({title: req.params.title}, function(err, workout){
     if (err) console.log(err);
-    console.log("Freaking done");
     res.json({success:true, msg: workout});
   });
 });

@@ -15,7 +15,8 @@
     "jsonwebtoken":"*",
     "body-parser":"*",
     "passport":"*",
-    "passport-jwt":"*"
+    "passport-jwt":"*",
+    "yelp-fusion":"^1.0.3"
   },
   "repository": {
     "type": "git",
