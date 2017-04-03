@@ -1,3 +1,20 @@
+<style>
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+}
+</style>
 <div class="jumbotron text-center" >
   <h1>UBUNG</h1>
   <p class="lead"> Welcome to UBUNG</p>
@@ -7,16 +24,28 @@
 </div>
 
 <div class="row">
-  <div class="col-md-4">
+  <!-- <div class="col-md-4">
     <h3>Review Workouts</h3>
     <p>Rate and review your favorite workouts!</p>
   </div>
   <div class="col-md-4">
     <h3>Search Workouts</h3>
     <p>Search for user submitted workouts and save your favorites!</p>
+  </div> -->
+
+    <div *ngFor="let workout of workouts">
+      <div class="col-md-4">
+      <div class="card">
+      <div class="container">
+      <p>{{workout.title}} {{workout.body}}  </p>
+    </div>
   </div>
-  <div class="col-md-4">
-    <h3>Build Workouts</h3>
-    <p>Use your favorite workouts to build a plan!</p>
   </div>
+</div>
+
+  <!-- <div class="col-md-4">
+    <li *ngFor="let workout of workouts">
+      <md-card>{{workout.title}} {{workout.body}}  </md-card>
+    </li>
+  </div> -->
 </div>
