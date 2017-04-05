@@ -1,21 +1,22 @@
 <style>
-.card {
+  .card {
     /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-}
-
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-/* Add some padding inside the card container */
-.container {
+  }
+  /* On mouse-over, add a deeper shadow */
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+  /* Add some padding inside the card container */
+  
+  .container {
     padding: 2px 16px;
-}
+  }
+
 </style>
-<div class="jumbotron text-center" >
+<div class="jumbotron text-center">
   <h1>UBUNG</h1>
   <p class="lead"> Welcome to UBUNG</p>
   <div>
@@ -23,8 +24,8 @@
   </div>
 </div>
 
-<div class="row">
-  <!-- <div class="col-md-4">
+<!--<div class="row">-->
+<!-- <div class="col-md-4">
     <h3>Review Workouts</h3>
     <p>Rate and review your favorite workouts!</p>
   </div>
@@ -33,19 +34,40 @@
     <p>Search for user submitted workouts and save your favorites!</p>
   </div> -->
 
-    <div *ngFor="let workout of workouts">
-      <div class="col-md-4">
+<!--<div *ngFor="let workout of workouts">
+    <div class="col-md-4">
       <div class="card">
-      <div class="container">
-      <p>{{workout.title}} {{workout.body}}  </p>
+        <div class="container">
+          <p>{{workout.title}} {{workout.body}} </p>
+        </div>
+      </div>
+    </div>
+  </div>-->
+<div class="row">
+  <div *ngFor="let workout of workouts">
+    <div class="col-md-6 w3-padding-24">
+    <div class="w3-card-4	">
+
+      <header class="w3-container w3-light-grey">
+        <h3>{{workout.title}}</h3>
+      </header>
+
+      <div class="w3-container">
+        <hr>
+        <img src="https://www.w3schools.com/w3css/img_avatar3.png" alt="Avatar" class="w3-left w3-circle w3-margin-bottom w3-margin-right" style="width:60px">
+        <p>{{workout.body}}</p>
+      </div>
+
+      <button class="w3-button w3-block w3-green">+ Add Workout</button>
     </div>
   </div>
   </div>
 </div>
 
-  <!-- <div class="col-md-4">
+
+<!-- <div class="col-md-4">
     <li *ngFor="let workout of workouts">
       <md-card>{{workout.title}} {{workout.body}}  </md-card>
     </li>
   </div> -->
-</div>
+<!--</div>-->
