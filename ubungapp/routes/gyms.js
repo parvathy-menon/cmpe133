@@ -8,7 +8,6 @@ const clientId = '_ectfG6zRqd-vflVHDH8ow';
 const clientSecret = 'TOlwUcELMEJ5E9Yp5o2cCUxAPCDSvW5ivs7V8u9kGt0Xw5htYHwftiI7rnbRfqzW';
 
 
-
 // address can be either city name or zip code
 router.get('/:address', (req,res) => {
   new Promise((resolve,reject) => {

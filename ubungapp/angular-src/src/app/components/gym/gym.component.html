@@ -1,0 +1,21 @@
+<div class="row">
+  <div *ngFor="let gym of gyms">
+    <div class="col-md-6 w3-padding-24">
+      <div class="w3-card-4	">
+
+        <header class="w3-container w3-light-grey">
+          <h3>{{gym.name}}</h3>
+        </header>
+
+        <div class="w3-container">
+          <hr>
+          <img src="{{gym.image_url}}" alt="Avatar" class="w3-left w3-rounded w3-margin-bottom w3-margin-right"
+            style="width:60px; height:60px">
+          <p>{{gym.location.display_address[0]}} {{gym.location.display_address[0]}}</p>
+          <p class="w3-display-bottomright w3-margin-right w3-margin-bottom w3-padding">rating: {{gym.rating}}</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
