@@ -29,7 +29,7 @@ const WorkoutSchema = mongoose.Schema({
     duration: Number
   }],
 
-  LiftingExercises: [{
+  liftingExercises: [{
     name: String,
     sets: Number,
     reps: Number
