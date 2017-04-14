@@ -30,7 +30,7 @@ const appRoutes: Routes = [
   {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
   {path:'workouts', component: WorkoutsComponent},
   {path:'gyms/:address', component: GymComponent,},
-  {path:'re-workout', component: RegWorkoutComponent}
+  {path:'reg-workout', component: RegWorkoutComponent}
 ]
 
 @NgModule({
