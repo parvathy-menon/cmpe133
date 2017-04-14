@@ -11,6 +11,7 @@ const mongoose = require('mongoose');
 
 // Workout Create
 router.post('/create', passport.authenticate('jwt', {session:false}),(req, res, next) => {
+  console.log("*******" + req.user._id)
   let newWorkout = new Workout({
     title: req.body.title,
     body: req.body.body,

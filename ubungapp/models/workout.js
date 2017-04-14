@@ -4,12 +4,10 @@ const config = require('../config/database');
 const WorkoutSchema = mongoose.Schema({
   title: {
     type: String,
-    required: true
   },
 
   body: {
     type: String,
-    required: true
   },
 
 // user who created workout
