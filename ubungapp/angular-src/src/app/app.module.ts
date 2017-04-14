@@ -13,6 +13,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { WorkoutsComponent } from './components/workouts/workouts.component';
 import { GymComponent } from './components/gym/gym.component';
+import { RegWorkoutComponent } from './components/reg-workout/reg-workout.component';
 
 import {ValidateService} from './services/validate.service';
 import {FlashMessagesModule} from 'angular2-flash-messages';
@@ -20,7 +21,7 @@ import {AuthService} from './services/auth.service';
 import {AuthGuard} from './guards/auth.guard';
 import {WorkoutsService} from './services/workouts.service';
 import {GymService} from './services/gym.service';
-import { RegWorkoutComponent } from './components/reg-workout/reg-workout.component'
+
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
   {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
   {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
   {path:'workouts', component: WorkoutsComponent},
-  {path:'gyms/:address', component: GymComponent}
+  {path:'gyms/:address', component: GymComponent},
+  {path:'reg-workout', component: RegWorkoutComponent}
 ]
 
 @NgModule({
