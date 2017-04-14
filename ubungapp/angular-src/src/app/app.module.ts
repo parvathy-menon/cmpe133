@@ -19,7 +19,8 @@ import {FlashMessagesModule} from 'angular2-flash-messages';
 import {AuthService} from './services/auth.service';
 import {AuthGuard} from './guards/auth.guard';
 import {WorkoutsService} from './services/workouts.service';
-import {GymService} from './services/gym.service'
+import {GymService} from './services/gym.service';
+import { RegWorkoutComponent } from './components/reg-workout/reg-workout.component'
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     ProfileComponent,
     WorkoutsComponent,
-    GymComponent
+    GymComponent,
+    RegWorkoutComponent
   ],
   imports: [
     BrowserModule,

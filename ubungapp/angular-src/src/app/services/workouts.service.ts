@@ -13,7 +13,12 @@ export class WorkoutsService {
     return this.http.get('http://localhost:3000/workouts/all', { headers: headers })
       .map(res => res.json());
   }
-  
+
+  createWorkout(workout){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/workouts/create', workout,{headers: headers})
+      .map(res => res.json());
+  }
+
 }
-
-
