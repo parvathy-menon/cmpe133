@@ -29,7 +29,7 @@ const appRoutes: Routes = [
   {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
   {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
   {path:'workouts', component: WorkoutsComponent},
-  {path:'gyms/:address', component: GymComponent,},
+  {path:'gyms/:address', component: GymComponent},
   {path:'reg-workout', component: RegWorkoutComponent}
 ]
 
