@@ -20,20 +20,21 @@ export class RegWorkoutComponent implements OnInit {
 
   constructor(
     private workoutsService:WorkoutsService,
-      private flashMessage: FlashMessagesService,
+    private flashMessage: FlashMessagesService,
     private router:Router,
     private authService: AuthService
   ) { }
 
   ngOnInit() {
-
+    this.authService.loadToken();
+    this.user = this.authService.user;
   }
 
   onRegisterSubmit(){
     var workout = {
+      user: this.user,
       title: this.title,
       body: this.body,
-      username: null,
       cardioExercises: null,
       liftingExercises: null,
       created_at: new Date().toString()
@@ -42,7 +43,7 @@ export class RegWorkoutComponent implements OnInit {
 
     this.workoutsService.createWorkout(workout).subscribe(data => {
       if(data.success){
-        this.flashMessage.show('You are now registered and can log in', {cssClass: 'alert-success', timeout: 3000});
+        this.flashMessage.show('Workout Created!', {cssClass: 'alert-success', timeout: 3000});
         this.router.navigate(['/home']);
       } else{
         this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
