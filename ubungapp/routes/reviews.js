@@ -13,7 +13,7 @@ router.post('/create', passport.authenticate('jwt', {session:false}), (req, res,
     title: new String(req.body.title),
     body: new String(req.body.body),
     user: mongoose.Types.ObjectId(req.user._id),
-    workout: mongoose.Types.ObjectId(req.body.workout._id),
+    workout: mongoose.Types.ObjectId(req.body.workout), //WORKOUT HERE IS JUST ID THRU POSTMAN - NEED TO FIX
     rating: req.body.rating
   });
 
@@ -27,11 +27,30 @@ router.post('/create', passport.authenticate('jwt', {session:false}), (req, res,
 
 });
 
-//search review by title
-router.get('/review/:title', (req,res) => {
-  Workout.find({title: req.params.title}, function(err, review){
+// //search review by title
+// router.get('/review/:title', (req,res) => {
+//   console.log("here")
+//   Review.find({title: req.params.title}, function(err, review){
+//     if (err) console.log(err);
+//     console.log("Freaking done");
+//     res.json({success:true, msg: review});
+//   });
+// });
+
+//search reviews by workout_id
+router.get('/:workout_id', (req,res) => {
+  //workout: req.params.workout_id
+  Review.find({workout: req.params.workout_id}, function(err, review){
     if (err) console.log(err);
     console.log("Freaking done");
+    res.json({success:true, msg: review});
+  });
+});
+
+// display all review
+router.get('/review/all', (req, res, next) => {
+  Review.find({}, function(err, review){
+    if (err) return console.log(err);
     res.json({success:true, msg: review});
   });
 });

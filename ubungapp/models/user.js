@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const config = require('../config/database');
+const Workout = require('../models/workout');
+
 
 //User Schema
 const UserSchema = mongoose.Schema({
@@ -18,7 +20,11 @@ const UserSchema = mongoose.Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  workouts: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Workout'
+  }]
 });
 
 const User = module.exports = mongoose.model('User', UserSchema);

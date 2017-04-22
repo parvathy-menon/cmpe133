@@ -14,6 +14,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { WorkoutsComponent } from './components/workouts/workouts.component';
 import { GymComponent } from './components/gym/gym.component';
 import { RegWorkoutComponent } from './components/reg-workout/reg-workout.component';
+import { ReviewComponent } from './components/review/review.component';
+
 
 import {ValidateService} from './services/validate.service';
 import {FlashMessagesModule} from 'angular2-flash-messages';
@@ -21,6 +23,7 @@ import {AuthService} from './services/auth.service';
 import {AuthGuard} from './guards/auth.guard';
 import {WorkoutsService} from './services/workouts.service';
 import {GymService} from './services/gym.service';
+import {ReviewsService} from './services/reviews.service';
 
 
 const appRoutes: Routes = [
@@ -31,7 +34,8 @@ const appRoutes: Routes = [
   {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
   {path:'workouts', component: WorkoutsComponent},
   {path:'gyms/:address', component: GymComponent},
-  {path:'reg-workout', component: RegWorkoutComponent}
+  {path:'reg-workout', component: RegWorkoutComponent},
+  {path:'workouts/:_id/reviews', component: ReviewComponent}
 ]
 
 @NgModule({
@@ -45,7 +49,8 @@ const appRoutes: Routes = [
     ProfileComponent,
     WorkoutsComponent,
     GymComponent,
-    RegWorkoutComponent
+    RegWorkoutComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule
   ],
-  providers: [ValidateService, AuthService, AuthGuard, WorkoutsService, GymService],
+  providers: [ValidateService, AuthService, AuthGuard, WorkoutsService, GymService, ReviewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
