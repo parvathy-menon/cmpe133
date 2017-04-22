@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -15,27 +15,36 @@ import { WorkoutsComponent } from './components/workouts/workouts.component';
 import { GymComponent } from './components/gym/gym.component';
 import { RegWorkoutComponent } from './components/reg-workout/reg-workout.component';
 import { ReviewComponent } from './components/review/review.component';
+import { RegReviewComponent } from './components//reg-review/reg-review.component';
 
 
-import {ValidateService} from './services/validate.service';
-import {FlashMessagesModule} from 'angular2-flash-messages';
-import {AuthService} from './services/auth.service';
-import {AuthGuard} from './guards/auth.guard';
-import {WorkoutsService} from './services/workouts.service';
-import {GymService} from './services/gym.service';
-import {ReviewsService} from './services/reviews.service';
+import { ValidateService } from './services/validate.service';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
+import { WorkoutsService } from './services/workouts.service';
+import { GymService } from './services/gym.service';
+import { ReviewsService } from './services/reviews.service';
 
 
 const appRoutes: Routes = [
-  {path:'', component: HomeComponent},
-  {path:'register', component: RegisterComponent},
-  {path:'login', component: LoginComponent},
-  {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
-  {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
-  {path:'workouts', component: WorkoutsComponent},
-  {path:'gyms/:address', component: GymComponent},
-  {path:'reg-workout', component: RegWorkoutComponent},
-  {path:'workouts/:_id/reviews', component: ReviewComponent}
+  { path: '', component: HomeComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'workouts', component: WorkoutsComponent },
+  { path: 'gyms/:address', component: GymComponent },
+  { path: 'reg-workout', component: RegWorkoutComponent },
+  {
+    path: 'workouts/:_id/reviews',
+    component: ReviewComponent,
+    children: [
+      { path: 'reg-review', component: RegReviewComponent } // url: workouts/:_id/reviews/reg-review
+    ]
+  }
+
+  //{path:'workouts/:_id/reviews/reg-review', component: RegReviewComponent}
 ]
 
 @NgModule({
@@ -50,7 +59,8 @@ const appRoutes: Routes = [
     WorkoutsComponent,
     GymComponent,
     RegWorkoutComponent,
-    ReviewComponent
+    ReviewComponent,
+    RegReviewComponent
   ],
   imports: [
     BrowserModule,
