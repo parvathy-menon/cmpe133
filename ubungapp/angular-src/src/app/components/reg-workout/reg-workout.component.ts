@@ -13,7 +13,6 @@ export class RegWorkoutComponent implements OnInit {
   user: Object;
   title: String;
   body: String;
-  username: Object;
   cardioExercises: null;
   liftingExercises: null;
   created_at: String;

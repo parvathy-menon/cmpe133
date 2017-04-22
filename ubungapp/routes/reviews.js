@@ -13,7 +13,7 @@ router.post('/create', passport.authenticate('jwt', {session:false}), (req, res,
     title: new String(req.body.title),
     body: new String(req.body.body),
     user: mongoose.Types.ObjectId(req.user._id),
-    workout: mongoose.Types.ObjectId(req.body.workout), //WORKOUT HERE IS JUST ID THRU POSTMAN - NEED TO FIX
+    workout: mongoose.Types.ObjectId(req.body.workoutId), //WORKOUT HERE IS JUST ID THRU POSTMAN - NEED TO FIX
     rating: req.body.rating
   });
 
