@@ -26,6 +26,16 @@ export class WorkoutsComponent implements OnInit {
     });
   }
 
+  onAddWorkout(workout) {
+    this.workoutsService.addWorkoutToUser(workout).subscribe(workout => {
+      console.log(workout);
+    },
+    err => {
+      console.log(err);
+      return false;
+    })
+  }
+
   onSearchSubmit(){
     var url = 'http://localhost:3000/workouts/workout/' + this.name;
     this.workoutsService.getWorkouts(url).subscribe(workouts => {
