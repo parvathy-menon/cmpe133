@@ -5,14 +5,14 @@ import {AuthService} from './auth.service'
 @Injectable()
 export class WorkoutsService {
 
-  constructor(private http: Http, 
+  constructor(private http: Http,
               private authService: AuthService) { }
 
-  getWorkouts() {
+  getWorkouts(url) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    return this.http.get('http://localhost:3000/workouts/all', { headers: headers })
+    return this.http.get(url, { headers: headers })
       .map(res => res.json());
   }
 

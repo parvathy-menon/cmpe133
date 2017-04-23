@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   workouts: Array<Object>;
 
   ngOnInit() {
-    this.workoutsService.getWorkouts().subscribe(workouts => {
+    this.workoutsService.getWorkouts('http://localhost:3000/workouts/all').subscribe(workouts => {
       var array = Object.keys(workouts).map((key) => { return workouts[key] });
       this.workouts = array[1];
       console.log(this.workouts[0]);
