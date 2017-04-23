@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import {AuthService} from './auth.service'
+import { AuthService } from './auth.service'
 
 @Injectable()
 export class WorkoutsService {
 
   constructor(private http: Http,
-              private authService: AuthService) { }
+    private authService: AuthService) { }
 
   getWorkouts(url) {
     let headers = new Headers();
@@ -16,13 +16,23 @@ export class WorkoutsService {
       .map(res => res.json());
   }
 
-  createWorkout(workout){
+  createWorkout(workout) {
     let headers = new Headers();
     this.authService.loadToken();
     headers.append('Authorization', this.authService.authToken);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/workouts/create', workout,{headers: headers})
+    return this.http.post('http://localhost:3000/workouts/create', workout, { headers: headers })
       .map(res => res.json());
   }
 
+  addWorkoutToUser(workout) {
+    let headers = new Headers();
+    this.authService.loadToken();
+    headers.append('Authorization', this.authService.authToken)
+    headers.append('Content-Type', 'application/json');
+    return this.http.patch('http://localhost:3000/users/:id', workout, { headers: headers })
+      .map(res => res.json());
+  }
 }
+
+
