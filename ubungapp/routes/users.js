@@ -14,6 +14,10 @@ router.post('/register', (req, res, next) => {
 		email: req.body.email,
 		username: req.body.username,
 		password: req.body.password,
+		height: "",
+		weight: "",
+		bio: "",
+		img: "https://img.clipartfox.com/60b365c0b69ce6f142a418820e0390fe_big-image-png-clipart-of-facebook-profile-picture_2400-2400.png",
 		workouts: []
 	});
 
@@ -80,6 +84,13 @@ router.get('/profile', passport.authenticate('jwt', {
 	res.json({
 		user: req.user
 	});
+});
+
+router.patch('/update', passport.authenticate('jwt', {
+	session: false
+}), (req, res, next) => {
+	
+	User.updateProfile();
 });
 
 // Add a new workout to a User

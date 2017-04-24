@@ -21,7 +21,22 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
-
+  height: {
+    type: String,
+    required: false
+  },
+  weight: {
+    type: String,
+    required: false
+  },
+  bio: {
+    type: String,
+    required: false
+  },
+  img: {
+    type: String,
+    required: false
+  },
   workouts: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Workout'
@@ -77,6 +92,19 @@ module.exports.addUser = function(newUser, callback){
       newUser.save(callback);
     })
   });
+}
+
+module.exports.updateProfile = function(req, res) {
+        console.log(req.user);
+        Profile.user = req.user;
+        Profile.user.username = req.body.username || Profile.user.username;
+        Profile.user.password = req.body.password || Profile.user.password;
+        Profile.user.height = req.body.height || Profile.user.height;
+        Profile.user.weight = req.body.weight || Profile.user.weight;
+        Profile.user.bio = req.body.bio || Profile.user.bio;
+
+        // Save the updated document back to the database
+        Profile.save();
 }
 
 module.exports.comparePassword = function(candidatePassword, hash, callback) {
