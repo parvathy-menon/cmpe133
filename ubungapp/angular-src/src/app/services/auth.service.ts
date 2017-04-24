@@ -31,7 +31,7 @@ export class AuthService {
   this.loadToken();
   headers.append('Authorization', this.authToken);
   headers.append('Content-Type', 'application/json');
-  return this.http.patch('http://localhost:3000/users/update', user, {headers: headers})
+  return this.http.patch('http://localhost:3000/users/update', {headers: headers})
     .map(res => res.json());
   }
 
