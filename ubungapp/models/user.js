@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const config = require('../config/database');
 const Workout = require('../models/workout');
-const Week = require('../models/week');
+
 
 //User Schema
 const UserSchema = mongoose.Schema({
