@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const config = require('../config/database');
 const Workout = require('../models/workout');
-
+const Week = require('../models/week');
 
 //User Schema
 const UserSchema = mongoose.Schema({
@@ -21,10 +21,41 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
+
   workouts: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Workout'
+  }],
+  sunday: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Workout'
+  }],
+  monday: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Workout'
+  }],
+
+  tuesday: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Workout'
+  }],
+  wednesday: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Workout'
+  }],
+  thursday: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Workout'
+  }],
+  friday: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Workout'
+  }],
+  saturday: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Workout'
   }]
+
 });
 
 const User = module.exports = mongoose.model('User', UserSchema);
