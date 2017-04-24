@@ -29,20 +29,17 @@ router.post('/create', passport.authenticate('jwt', {session:false}), (req, res,
 
 // //search review by title
 // router.get('/review/:title', (req,res) => {
-//   console.log("here")
 //   Review.find({title: req.params.title}, function(err, review){
 //     if (err) console.log(err);
-//     console.log("Freaking done");
 //     res.json({success:true, msg: review});
 //   });
 // });
 
-//search reviews by workout_id
+//display reviews by workout_id
 router.get('/:workout_id', (req,res) => {
   //workout: req.params.workout_id
   Review.find({workout: req.params.workout_id}, function(err, review){
     if (err) console.log(err);
-    console.log("Freaking done");
     res.json({success:true, msg: review});
   });
 });

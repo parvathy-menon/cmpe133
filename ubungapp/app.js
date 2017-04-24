@@ -25,6 +25,7 @@ const users = require('./routes/users');
 const reviews = require('./routes/reviews');
 const workouts = require('./routes/workouts');
 const gyms = require('./routes/gyms');
+const profiles = require('./routes/profiles');
 
 //Port number
 const port = 3000;
@@ -48,6 +49,7 @@ app.use('/users', users);
 app.use('/reviews', reviews);
 app.use('/workouts', workouts);
 app.use('/gyms', gyms);
+app.use('/profiles',profiles);
 
 //Index Route
 app.get('/', (req, res) => {
