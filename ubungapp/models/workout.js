@@ -17,22 +17,22 @@ const WorkoutSchema = mongoose.Schema({
     required: true
   },
 
+  created_by: {
+    type: String
+  },
+
   createdAt: {
     type: Date,
     default: Date.now()
   },
 
-  cardioExercises: [{
-    name: String,
-    duration: Number
-  }],
+  cardioname: String,
+  duration: String,
 
-  liftingExercises: [{
-    name: String,
-    sets: Number,
-    reps: Number
-  }],
-  
+  liftingname: String,
+  sets: Number,
+  reps: Number,
+
   updated_at: String
 });
 

@@ -34,5 +34,3 @@ export class WorkoutsService {
       .map(res => res.json());
   }
 }
-
-

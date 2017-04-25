@@ -12,9 +12,12 @@ import {AuthService} from '../../services/auth.service';
 export class RegWorkoutComponent implements OnInit {
   user: Object;
   title: String;
-  body: String;
-  cardioExercises: null;
-  liftingExercises: null;
+  description: String;
+  cardioname: String;
+  duration: String;
+  liftingname: String;
+  sets: Number;
+  reps: Number;
   created_at: String;
 
   constructor(
@@ -33,9 +36,12 @@ export class RegWorkoutComponent implements OnInit {
     var workout = {
       user: this.user,
       title: this.title,
-      body: this.body,
-      cardioExercises: null,
-      liftingExercises: null,
+      description: this.description,
+      cardioname: this.cardioname,
+      duration: this.duration,
+      liftingname: this.liftingname,
+      sets: this.sets,
+      reps:this.reps,
       created_at: new Date().toString()
     }
 

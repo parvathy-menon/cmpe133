@@ -11,13 +11,16 @@ const mongoose = require('mongoose');
 
 // Workout Create
 router.post('/create', passport.authenticate('jwt', {session:false}),(req, res, next) => {
-  console.log("*******" + req.user._id)
   let newWorkout = new Workout({
     title: req.body.title,
     body: req.body.body,
     user: mongoose.Types.ObjectId(req.user._id),
-    cardioExercises: req.body.cardioExercises,
-    liftingExercises: req.body.liftingExercises,
+    cardioname: req.body.cardioname,
+    duration: req.body.duration,
+    liftingname: req.body.liftingname,
+    sets: req.body.sets,
+    reps: req.body.reps,
+    created_by: req.user.name,
     created_at: new Date().toString()
   });
 
@@ -27,6 +30,7 @@ router.post('/create', passport.authenticate('jwt', {session:false}),(req, res, 
       console.log(err);
     } else {
       res.json({success: true, msg:newWorkout});
+      console.log(newWorkout);
     }
   });
 });

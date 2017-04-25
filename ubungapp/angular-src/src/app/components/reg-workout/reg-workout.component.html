@@ -9,5 +9,47 @@
     <input type="text" [(ngModel)]="description" name="description" class="form-control">
   </div>
 
+  <div class="form-group">
+    <label>Cardio Exercises</label>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="name">Name:</label>
+        <div class="col-sm-10">
+          <input type="text" [(ngModel)]="cardioname" name="cardioname" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="duration">Duration:</label>
+        <div class="col-sm-10">
+          <input type="text" [(ngModel)]="duration" name="duration" class="form-control">
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="form-group">
+    <label>Lifting Exercises</label>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="name">Name:</label>
+        <div class="col-sm-10">
+          <input type="text" [(ngModel)]="liftingname" name="liftingname" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="sets">Sets:</label>
+        <div class="col-sm-10">
+          <input type="text" [(ngModel)]="sets" name="sets" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="reps">Reps:</label>
+        <div class="col-sm-10">
+          <input type="text" [(ngModel)]="reps" name="reps" class="form-control">
+        </div>
+      </div>
+    </form>
+  </div>
+
   <input type="submit" class="btn btn-primary" value="Submit">
 </form>
