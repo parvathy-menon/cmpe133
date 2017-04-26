@@ -1,2 +1,31 @@
-<h2 class="page-header">Dashboard</h2>
-<p>Welcome to your dashboard</p>
+<div class="page-header">
+<h2>Dashboard</h2>
+</div>
+
+
+<div class="list-group col-md-6">
+  <button type="button" class="list-group-item">Sunday</button>
+  <button type="button" class="list-group-item">Monday</button>
+  <button type="button" class="list-group-item">Tuesday</button>
+  <button type="button" class="list-group-item">Wednesday</button>
+  <button type="button" class="list-group-item">Thursday</button>
+  <button type="button" class="list-group-item">Friday</button>
+  <button type="button" class="list-group-item">Saturday</button>
+
+</div>
+
+
+<hr>
+<div class="container-fluid">
+<div class="row" style="margin-bottom: 0px !important;">
+  <div class="col-md-8" *ngFor="let userWorkout of userWorkouts" >
+      <header >
+          <h3>{{userWorkout.title}}</h3>
+      </header>
+        <p> {{userWorkout.body}} </p>
+        <a class="w3-display-topright btn btn-primary" style="z-index:0;">+</a>
+
+      <hr>
+    </div>
+  </div>
+</div>
