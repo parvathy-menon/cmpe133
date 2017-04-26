@@ -18,13 +18,13 @@ export class DashboardService {
       .map(res => res.json());
   }
 
-    addWorkoutToSchedule(workout, day) {
+    addWorkoutToSchedule(workout, days) {
     let headers = new Headers();
     this.authService.loadToken();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', this.authService.authToken);
 
-    return this.http.post('http://localhost:3000/users/workouts/days', {workout,day},{ headers: headers })
+    return this.http.patch('http://localhost:3000/users/workouts/days', {workout,days},{ headers: headers })
       .map(res => res.json());
     }
 

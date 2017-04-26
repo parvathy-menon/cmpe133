@@ -114,6 +114,7 @@ router.patch('/update', passport.authenticate('jwt', {
 // 		user: req.user
 // 	});
 // });
+
 // Add a new workout to a User
 router.patch('/:id', passport.authenticate('jwt', {session: false}), (req, res, next) => {
 	userId = req.user._id;
@@ -131,32 +132,28 @@ router.patch('/:id', passport.authenticate('jwt', {session: false}), (req, res, 
 	});
 });
 
+//Add a workout to a user's schedule
 router.patch('/workouts/days', passport.authenticate('jwt', {
 	session: false
 }), (req, res, next) => {
 	userId = req.user._id;
-	day = req.body.day;
+	workout = req.body.workout;
+	days = req.body.days;
 
 	User.getUserById(userId, (err, user) => {
-			if (user.day.indexOf() === -1) {
-				user.day.push();
-				user.save((err, updatedUser) => {
-					if (err) return err;
-					res.json({
-						success: true,
-						user: {
-							day: user.day
-						}
-					});
-				});
-	}
-	else {
-		res.json({
-			success: false,
-			msg: 'User already has this workout on this day'
-		});
-	}
-});
+		for(let day of days) {
+			console.log(user[day]);
+			if(user[day].indexOf() === -1) {
+				user[day].push(workout._id);
+			}
+		}
+
+		user.save((err, updatedUser) => {
+			if(err) return err;
+			res.json({success: true, user: {updatedUser}});
+		})
+	})
+	
 });
 
 //Get a user's workouts
