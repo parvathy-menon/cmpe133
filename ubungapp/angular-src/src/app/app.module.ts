@@ -25,6 +25,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { WorkoutsService } from './services/workouts.service';
 import { GymService } from './services/gym.service';
 import { ReviewsService } from './services/reviews.service';
+import { DashboardService } from './services/dashboard.service'
 
 
 const appRoutes: Routes = [
@@ -69,7 +70,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule
   ],
-  providers: [ValidateService, AuthService, AuthGuard, WorkoutsService, GymService, ReviewsService],
+  providers: [ValidateService, AuthService, AuthGuard, WorkoutsService, GymService, ReviewsService, DashboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
