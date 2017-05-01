@@ -54,6 +54,7 @@ router.get('/all', (req, res, next) => {
 
 // delete workout
 router.delete('/delete/:_id', passport.authenticate('jwt', {session:false}), function(req, res, next){
+  console.log("REQUEST ::: " + req.params._id);
   Workout.findOneAndRemove({_id: req.params._id}, function(err,workout) {
     if (err) console.log(err);
     res.json({success:true, msg: workout});
