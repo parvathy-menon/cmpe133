@@ -30,9 +30,11 @@ export class WorkoutsService {
     this.authService.loadToken();
     headers.append('Authorization', this.authService.authToken)
     headers.append('Content-Type', 'application/json');
-    return this.http.patch('http://localhost:3000/users/:id', workout, { headers: headers })
+    return this.http.patch('http://localhost:3000/users/', workout, { headers: headers })
       .map(res => res.json());
   }
+
+  
 
   deleteWorkout(id) {
     let headers = new Headers();

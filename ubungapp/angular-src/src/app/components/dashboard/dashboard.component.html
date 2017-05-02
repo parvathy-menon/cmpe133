@@ -3,17 +3,23 @@
 </div>
 
 
-<div class="list-group col-md-6">
-  <button type="button" class="list-group-item">Sunday</button>
-  <button type="button" class="list-group-item">Monday</button>
-  <button type="button" class="list-group-item">Tuesday</button>
-  <button type="button" class="list-group-item">Wednesday</button>
-  <button type="button" class="list-group-item">Thursday</button>
-  <button type="button" class="list-group-item">Friday</button>
-  <button type="button" class="list-group-item">Saturday</button>
+<div class="list-group row col-md-6">
+    <button (click)="displayWorkoutsFor('sunday')" type="button" class="list-group-item"> Sunday </button>
+
+  <button (click)="displayWorkoutsFor('monday')" type="button" class="list-group-item">Monday</button>
+
+  <button (click)="displayWorkoutsFor('tuesday')" type="button" class="list-group-item">Tuesday</button>
+  <button (click)="displayWorkoutsFor('wednesday')" type="button" class="list-group-item">Wednesday</button>
+  <button (click)="displayWorkoutsFor('thursday')" type="button" class="list-group-item">Thursday</button>
+  <button (click)="displayWorkoutsFor('friday')" type="button" class="list-group-item">Friday</button>
+  <button (click)="displayWorkoutsFor('saturday')" type="button" class="list-group-item">Saturday</button>
+  
 
 </div>
 
+<div class="list-group row col-md-6 w3-margin-left">
+  <a class="col-md-6 list-group-item" *ngFor="let dayWorkout of dayWorkouts">{{dayWorkout.title}}</a>
+</div>
 
 <hr>
 <div class="container-fluid">
