@@ -17,18 +17,21 @@ export class RegReviewComponent implements OnInit {
   workoutId: String;
   rating: Number;
   created_at: String;
+  created_by: String;
 
 
-  constructor(private reviewsService: ReviewsService,
+  constructor(
+    private reviewsService: ReviewsService,
     private flashMessage: FlashMessagesService,
     private router: Router,
     private authService: AuthService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.authService.loadToken();
     this.user = this.authService.user;
-    
+
     this.activatedRoute.params.subscribe((params: Params) => {
         this.workoutId = this.activatedRoute.snapshot.parent.url[1].path; // This gives us the correct workoutId to create a review
       });

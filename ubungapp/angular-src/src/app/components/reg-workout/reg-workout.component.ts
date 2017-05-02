@@ -19,6 +19,8 @@ export class RegWorkoutComponent implements OnInit {
   sets: Number;
   reps: Number;
   created_at: String;
+  created_by: String;
+
 
   constructor(
     private workoutsService:WorkoutsService,

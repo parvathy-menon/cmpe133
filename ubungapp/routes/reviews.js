@@ -14,13 +14,18 @@ router.post('/create', passport.authenticate('jwt', {session:false}), (req, res,
     body: new String(req.body.body),
     user: mongoose.Types.ObjectId(req.user._id),
     workout: mongoose.Types.ObjectId(req.body.workoutId), //WORKOUT HERE IS JUST ID THRU POSTMAN - NEED TO FIX
-    rating: req.body.rating
+    rating: req.body.rating,
+    created_by: new String(req.user.name),
+    created_at: new Date().toString()
   });
 
  Review.addReview(newReview, (err, review) => {
     if(err) {
       res.json({success: false, msg:'Failed to create review ' + err});
+      console.log("review***:"+ newReview)
+
     } else {
+      console.log("review***:"+ newReview)
       res.json({success: true, msg:newReview});
     }
   });
@@ -38,6 +43,7 @@ router.post('/create', passport.authenticate('jwt', {session:false}), (req, res,
 //display reviews by workout_id
 router.get('/:workout_id', (req,res) => {
   //workout: req.params.workout_id
+
   Review.find({workout: req.params.workout_id}, function(err, review){
     if (err) console.log(err);
     res.json({success:true, msg: review});
