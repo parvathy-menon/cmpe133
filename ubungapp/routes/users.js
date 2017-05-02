@@ -174,4 +174,22 @@ router.get('/workouts', passport.authenticate('jwt', {
 	});
 });
 
+//Get a users workouts for a particular day
+router.get('/workouts/:day', passport.authenticate('jwt', {
+	session: false
+}), (req, res, next) => {
+	day = req.params.day;
+	Workout.find({
+		'_id': {
+			$in: req.user[day]
+		}
+	}, (err, workouts) => {
+		if(err) return err;
+		res.json({
+			success: true,
+			workouts: workouts
+		})
+	});
+});
+
 module.exports = router;
