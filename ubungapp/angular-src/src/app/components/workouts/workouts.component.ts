@@ -10,6 +10,7 @@ import {WorkoutsService} from '../../services/workouts.service';
 })
 export class WorkoutsComponent implements OnInit {
   name: String;
+  _id: String;
   workouts:Array<Object>;
 
   constructor(private router:Router, private workoutsService:WorkoutsService) { }
@@ -49,4 +50,22 @@ export class WorkoutsComponent implements OnInit {
     });
   }
 
+  onDeleteSubmit(workout) { 
+    var id = workout._id;
+    this.workoutsService.deleteWorkout(id).subscribe(workouts => {
+      this.workoutsService.getWorkouts('http://localhost:3000/workouts/all').subscribe(workouts => {
+        var array = Object.keys(workouts).map((key) => {return workouts[key]});
+        this.workouts = array[1];
+        console.log(this.workouts[0]);
+      },
+      err => {
+        console.log(err);
+        return false;
+      });
+    },
+    err => {
+      console.log(err);
+      return false;
+    });
+  }
 }

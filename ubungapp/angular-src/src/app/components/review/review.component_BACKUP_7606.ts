@@ -33,6 +33,9 @@ export class ReviewComponent implements OnInit {
     });
   }
 
+<<<<<<< HEAD
+  
+=======
   onDeleteSubmit(review){
     var id = review._id;
     this.reviewsService.deleteReview(id).subscribe(reviews => {
@@ -54,5 +57,6 @@ export class ReviewComponent implements OnInit {
       return false;
     });
   }
+>>>>>>> origin/master
 
 }

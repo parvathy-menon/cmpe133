@@ -5,10 +5,13 @@
           <h3>{{review.title}}</h3>
       </header>
         <p class="well"> {{review.body}} </p>
+        <button (click)="onDeleteSubmit(review)" type="button">Delete</button>
+
       <hr>
     </div>
 
     <button class="btn btn-primary"><a [routerLink]="['reg-review']">+ Add Review</a></button>
+
     <router-outlet></router-outlet>
 
   </div>

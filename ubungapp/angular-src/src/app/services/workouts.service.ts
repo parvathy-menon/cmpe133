@@ -36,4 +36,12 @@ export class WorkoutsService {
 
   
 
+  deleteWorkout(id) {
+    let headers = new Headers();
+    this.authService.loadToken();
+    headers.append('Authorization', this.authService.authToken)
+    headers.append('Content-Type', 'application/json');
+    return this.http.delete('http://localhost:3000/workouts/delete/'+ id,{ headers: headers })
+      .map(res => res.json());
+  }
 }

@@ -46,6 +46,10 @@
             <p class="w3-margin-left ">Reps: {{ex.reps}}</p>
           </div>
           <a style="color:blue; float:right;" class="display-right " href="/workouts/{{workout._id}}/reviews">reviews</a>
+          <br>
+          <br>
+
+            <button (click)="onDeleteSubmit(workout)" type="button">Delete</button>
         </div>
         <br>
       </div>
