@@ -1,3 +1,4 @@
+	<div class="position-container">
 	<div *ngIf="user" style="position: relative;">
 		<h2 class="page-header">{{user.name}}</h2>
 
@@ -52,12 +53,13 @@
 				</div>
 			</div>
 		</div>
-
+		
 		<div style="position: relative;">
 			<div style="position: relative;">
-				<img [src]="img" style="height: 342px; width: 342px">
-
-				<img src="https://image.flaticon.com/icons/png/512/52/52803.png" style="height: 40px; width: 40px; position:absolute; top: 10px; left: 10px;">
+				<img src="/assets/profile-picture.png" style="height: 342px; width: 342px">
+				<!--<img [src]="img" style="height: 342px; width: 342px">-->
+				<!--<img src="/assets/profile-picture.png"> jja-->
+				<!--<img src="https://image.flaticon.com/icons/png/512/52/52803.png" style="height: 40px; width: 40px; position:absolute; top: 10px; left: 10px;">-->
 				<!-- https://img.clipartfox.com/60b365c0b69ce6f142a418820e0390fe_big-image-png-clipart-of-facebook-profile-picture_2400-2400.png -->
 				<!-- <input type="file" (click)="previewFile()"> -->
 
@@ -97,7 +99,9 @@
 			</div>
 
 		</div>
+		</div>
 
 
 	</div>
+
 

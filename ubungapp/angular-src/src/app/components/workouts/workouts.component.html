@@ -1,3 +1,4 @@
+<div class="page-container">
 <form (submit)="onSearchSubmit()">
   <div class="form-group">
     <div class="row">
@@ -52,10 +53,10 @@
           </form>
 
           <a style="color:blue; float:right;" class="display-right " href="/workouts/{{workout._id}}/reviews">reviews</a>
+
+         <button (click)="onDeleteSubmit(workout)" class="btn btn-default" value="Delete" style="background-color:#f44336; float:left; border:none; color:white; padding: 15px 32 px; text-align: center; border-radius: 4px;"type="button" href="/workouts/workouts">Delete</button>
           <br>
          <br>
-
-         <button (click)="onDeleteSubmit(workout)" class="btn btn-default" value="Delete" style="color:red; float:right;"type="button" href="/workouts/workouts">Delete</button>
 
 
         </div>
@@ -64,3 +65,5 @@
       </div>
     </div>
   </div>
+</div>
+</div>
