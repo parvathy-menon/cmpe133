@@ -6,7 +6,7 @@ const WorkoutSchema = mongoose.Schema({
     type: String,
   },
 
-  body: {
+  description: {
     type: String,
   },
 

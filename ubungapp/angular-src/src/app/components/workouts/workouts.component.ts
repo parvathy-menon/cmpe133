@@ -50,7 +50,7 @@ export class WorkoutsComponent implements OnInit {
     });
   }
 
-  onDeleteSubmit(workout) { 
+  onDeleteSubmit(workout) {
     var id = workout._id;
     this.workoutsService.deleteWorkout(id).subscribe(workouts => {
       this.workoutsService.getWorkouts('http://localhost:3000/workouts/all').subscribe(workouts => {

@@ -14,7 +14,7 @@ router.post('/create', passport.authenticate('jwt', {session:false}),(req, res, 
 
   let newWorkout = new Workout({
     title: req.body.title,
-    body: req.body.body,
+    description: req.body.description,
     user: mongoose.Types.ObjectId(req.user._id),
     cardioname: req.body.cardioname,
     duration: req.body.duration,
@@ -37,6 +37,7 @@ router.post('/create', passport.authenticate('jwt', {session:false}),(req, res, 
 
 //search workout by title
 router.get('/workout/:title', (req,res) => {
+  console.log(workout);
   Workout.find({title: {"$regex": req.params.title, "$options": "i"}}, function(err, workout){
     if (err) console.log(err);
     res.json({success:true, msg: workout});
