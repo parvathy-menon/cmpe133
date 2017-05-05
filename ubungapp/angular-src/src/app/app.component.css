@@ -1,0 +1,18 @@
+.footer {
+    position:  relative;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /*background-color: #e4e4e4;*/
+    text-align: center;
+    padding: 36px 0 18px;
+    font-size: 14px;
+    line-height: 1.28571em;
+    color: #666;
+    /*border-top: 1px solid #ccc;*/
+    /*min-width: 1020px;*/
+}
+
+.images{
+    padding: 10px;
+}
