@@ -1,107 +1,106 @@
-	<div class="position-container container">
-	<div *ngIf="user" style="position: relative;">
-		<h2 class="page-header">{{user.name}}</h2>
+<div class="position-container container">
+<div *ngIf="user" style="position: relative;">
+	<h2 class="page-header">{{user.name}}</h2>
 
-		<button type="button" class="btn btn-primary" style="position : absolute; right: 1px; top: 0px;" data-toggle="modal" data-target="#myModal">Edit Profile</button>
+	<button type="button" class="btn btn-primary" style="position : absolute; right: 1px; top: 0px;" data-toggle="modal" data-target="#myModal">Edit Profile</button>
 
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
 
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-						<h3 class="modal-title" id="">Edit Profile</h3>
-						
-					</div>
-					<div class="modal-body">
-						<form>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Email address</label>
-								<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputPassword1">Password</label>
-								<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputPassword1">Height</label>
-								<input type="" class="form-control">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputPassword1">Weight</label>
-								<input type="" class="form-control">
-							</div>
-							
-							<div class="form-group">
-								<label for="exampleTextarea">Bio</label>
-								<textarea class="form-control" id="" rows="3"></textarea>
-							</div>
-							<div class="form-group">
-								<label for="exampleInputFile">Profile Picture</label>
-								<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-								<small id="fileHelp" class="form-text text-muted">Select file to upload.</small>
-							</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary" (click) = "saveChanges()">Save changes</button>
-					</div>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h3 class="modal-title" id="">Edit Profile</h3>
+
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label >Username</label>
+							<input type="text" class="form-control" [(ngModel)]="nUsername" name = "nPassword" placeholder="Password">
+						</div>
+						<div class="form-group">
+							<label>Email address</label>
+							<input type="text" class="form-control custom-control-input" [(ngModel)]="nEmail" name = "nEmail" placeholder="Enter email">
+						</div>
+
+						<div class="form-group">
+							<label >Height</label>
+							<input type="text" class="form-control" [(ngModel)]="nHeight" name = "nHeight">
+						</div>
+						<div class="form-group">
+							<label >Weight</label>
+							<input type="text" class="form-control" [(ngModel)]="nWeight" name = "nWeight">
+						</div>
+
+						<div class="form-group">
+							<label >Bio</label>
+								<input type="text" class="form-control" [(ngModel)]="nBio" name = "nBio">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputFile">Profile Picture</label>
+							<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+							<small id="fileHelp" class="form-text text-muted">Select file to upload.</small>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" data-dismiss="myModal" (click) = "saveChanges()">Save changes</button>
 				</div>
 			</div>
 		</div>
-		
+	</div>
+
+	<div style="position: relative;">
 		<div style="position: relative;">
-			<div style="position: relative;">
-				<img src="/assets/profile-picture.png" style="height: 342px; width: 342px">
-				<!--<img [src]="img" style="height: 342px; width: 342px">-->
-				<!--<img src="/assets/profile-picture.png"> jja-->
-				<!--<img src="https://image.flaticon.com/icons/png/512/52/52803.png" style="height: 40px; width: 40px; position:absolute; top: 10px; left: 10px;">-->
-				<!-- https://img.clipartfox.com/60b365c0b69ce6f142a418820e0390fe_big-image-png-clipart-of-facebook-profile-picture_2400-2400.png -->
-				<!-- <input type="file" (click)="previewFile()"> -->
-
-			</div>
-
-			
-			<div style="position: absolute; left: 455px; top: 60px; width: 500px;">
-				<!-- <ul class="list-group">
-					<li class="list-group-item">Username: {{user.username}}</li>
-					<li class="list-group-item">Email: {{user.email}}</li>
-				</ul> -->
-				<table class="table">
-
-					<tbody>
-						<tr>
-							<th>Username:</th>
-							<td>{{user.username}}</td>
-						</tr>
-						<tr>
-							<th>Email:</th>
-							<td>{{user.email}}</td>
-						</tr>
-						<tr>
-							<th>Height:</th>
-							<td>{{height}}</td>
-						</tr>
-						<tr>
-							<th>Weight:</th>
-							<td>{{weight}}</td>
-						</tr>
-						<tr>
-							<th>Bio:</th>
-							<td>{{bio}}</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+			<img src="/assets/profile-picture.png" style="height: 342px; width: 342px">
+			<!--<img [src]="img" style="height: 342px; width: 342px">-->
+			<!--<img src="/assets/profile-picture.png"> jja-->
+			<!--<img src="https://image.flaticon.com/icons/png/512/52/52803.png" style="height: 40px; width: 40px; position:absolute; top: 10px; left: 10px;">-->
+			<!-- https://img.clipartfox.com/60b365c0b69ce6f142a418820e0390fe_big-image-png-clipart-of-facebook-profile-picture_2400-2400.png -->
+			<!-- <input type="file" (click)="previewFile()"> -->
 
 		</div>
+
+
+		<div style="position: absolute; left: 455px; top: 60px; width: 500px;">
+			<!-- <ul class="list-group">
+				<li class="list-group-item">Username: {{user.username}}</li>
+				<li class="list-group-item">Email: {{user.email}}</li>
+			</ul> -->
+			<table class="table">
+
+				<tbody>
+					<tr>
+						<th>Username:</th>
+						<td>{{user.username}}</td>
+					</tr>
+					<tr>
+						<th>Email:</th>
+						<td>{{user.email}}</td>
+					</tr>
+					<tr>
+						<th>Height:</th>
+						<td>{{user.height}}</td>
+					</tr>
+					<tr>
+						<th>Weight:</th>
+						<td>{{user.weight}}</td>
+					</tr>
+					<tr>
+						<th>Bio:</th>
+						<td>{{user.bio}}</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 
-
+	</div>
 	</div>
 
 
+</div>

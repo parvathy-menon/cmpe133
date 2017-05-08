@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
+import {FlashMessagesService} from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-profile',
@@ -14,7 +15,14 @@ export class ProfileComponent implements OnInit {
   bio = 'Have a very active lifestyle.';
   img = 'https://img.clipartfox.com/60b365c0b69ce6f142a418820e0390fe_big-image-png-clipart-of-facebook-profile-picture_2400-2400.png';
 
-  constructor(private authService:AuthService, private router:Router) { }
+  nEmail:String;
+  nUsername: String;
+  nHeight: String;
+  nWeight: String;
+  nBio:String;
+
+
+  constructor(private authService:AuthService, private router:Router,     private flashMessage: FlashMessagesService) { }
 
   ngOnInit() {
     this.authService.getProfile().subscribe(profile => {
@@ -31,14 +39,24 @@ export class ProfileComponent implements OnInit {
   }
 
   saveChanges() {
-
-    this.authService.updateProfile().subscribe(data => {
+    var profile = {
+      nEmail: this.nEmail,
+      nUsername: this.nUsername,
+      nHeight: this.nHeight,
+      nWeight: this.nWeight,
+      nBio: this.nBio,
+      //created_at: new Date().toString()
+    }
+    //console.log(profile);
+    this.authService.updateProfile(profile).subscribe(data => {
       if (data.success) {
-        
+
+          location.reload();
+            this.flashMessage.show('Profile successfully updated', {cssClass: 'alert-success', timeout: 3000});
       } else {
-        
+        this.flashMessage.show('Update unsuccessful', {cssClass: 'alert-success', timeout: 3000});
         }
-    
+
   });
   }
 
@@ -53,8 +71,7 @@ export class ProfileComponent implements OnInit {
   }, false);
 
   if (file) {
-    
+
   }
  }
 }
-

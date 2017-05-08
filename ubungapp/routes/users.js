@@ -97,8 +97,38 @@ router.get('/profile', passport.authenticate('jwt', {
 router.patch('/update', passport.authenticate('jwt', {
 	session: false
 }), (req, res, next) => {
-	
-	User.updateProfile();
+	userId = req.user._id;
+	profile = req.body;
+
+	User.getUserById(userId, (err, user) => {
+		if(profile.nBio){
+			user.bio = profile.nBio;
+		}
+		if(profile.nEmail){
+			user.email = profile.nEmail;
+		}
+		if(profile.nHeight){
+			user.height = profile.nHeight;
+		}
+		if(profile.nWeight){
+			user.weight = profile.nWeight;
+		}
+		if(profile.nUsername){
+			user.username = profile.nUsername;
+		}
+		//user.username = req.body.username || profile.username;
+		//user.password = req.body.password || profile.nPassword;
+		//user.height = req.body.height || profile.nHeight;
+		//user.weight = req.body.weight || profile.nWeight;
+		//user.bio = req.body.bio || profile.nBio;
+
+		user.save((err, updatedUser) => {
+			console.log(updatedUser);
+			if(err) return err;
+			res.json({success: true, user: {updatedUser}});
+		})
+	})
+
 });
 
 // router.get('/workouts', passport.authenticate('jwt', {
@@ -153,7 +183,7 @@ router.patch('/workouts/days', passport.authenticate('jwt', {
 			res.json({success: true, user: {updatedUser}});
 		})
 	})
-	
+
 });
 
 //Get a user's workouts

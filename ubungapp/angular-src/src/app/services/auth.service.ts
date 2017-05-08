@@ -26,12 +26,13 @@ export class AuthService {
       .map(res => res.json());
   }
 
-  updateProfile(){
+  updateProfile(profile){
    let headers = new Headers();
   this.loadToken();
   headers.append('Authorization', this.authToken);
   headers.append('Content-Type', 'application/json');
-  return this.http.patch('http://localhost:3000/users/update', {headers: headers})
+  //console.log(profile);
+  return this.http.patch('http://localhost:3000/users/update',profile, {headers: headers})
     .map(res => res.json());
   }
 
