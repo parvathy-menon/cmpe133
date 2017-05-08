@@ -1,0 +1,8 @@
+.maps-container{
+    float: right;
+    padding: 10px;
+}
+
+td{
+    vertical-align: top;
+}
