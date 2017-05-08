@@ -1,11 +1,11 @@
 .footer {
     position:  relative;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    right: 50;
+    bottom: 50;
+    left: 50;
     /*background-color: #e4e4e4;*/
     text-align: center;
-    padding: 36px 0 18px;
+    padding: 36px 20px 18px 20px;
     font-size: 14px;
     line-height: 1.28571em;
     color: #666;
