@@ -52,9 +52,13 @@
             </div>
           </form>
 
-          <a style="color:blue; float:right;" class="display-right " href="/workouts/{{workout._id}}/reviews">reviews</a>
+          <a style="background-color:#008CBA; float:right; border:none; color:white; 
+          padding: 10px 18px; text-align: center; border-radius: 4px; float:right;" 
+          class="btn btn-primary active btn-md" href="/workouts/{{workout._id}}/reviews">reviews</a>
 
-         <button (click)="onDeleteSubmit(workout)" class="btn btn-default" value="Delete" style="background-color:#f44336; float:left; border:none; color:white; padding: 15px 32 px; text-align: center; border-radius: 4px;"type="button" href="/workouts/workouts">Delete</button>
+         <button (click)="onDeleteSubmit(workout)" class="btn btn-primary active btn-md" 
+         alue="Delete" style="background-color:#f44336; float:left; border:none; color:white; 
+         padding: 15px 32 px; text-align: center; border-radius: 4px;"type="button" href="/workouts/workouts">Delete</button>
           <br>
          <br>
 
