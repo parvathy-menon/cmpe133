@@ -51,10 +51,10 @@ export class RegWorkoutComponent implements OnInit {
     this.workoutsService.createWorkout(workout).subscribe(data => {
       if(data.success){
         this.flashMessage.show('Workout Created!', {cssClass: 'alert-success', timeout: 3000});
-        this.router.navigate(['/home']);
+        this.router.navigate(['/workouts']);
       } else{
         this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
-        this.router.navigate(['/home']);
+        this.router.navigate(['/workouts']);
       }
     });
   }
