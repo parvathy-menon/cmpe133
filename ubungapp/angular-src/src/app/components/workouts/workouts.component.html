@@ -21,10 +21,10 @@
       <div class="w3-card-4" style="max-height:400px; min-height:400px; overflow:auto;" >
 
         <header class="w3-container w3-light-grey w3-padding-small" >
-          <a (click)="onAddWorkout(workout)" data-toggle="modal" data-target="#myModal" class="w3-button w3-circle w3-xlarge w3-right w3-green" style="z-index:0;">+</a>
+            <a (click)="onAddWorkout(workout)" data-toggle="modal" data-target="#myModal" class="w3-button w3-circle w3-xlarge w3-right w3-green" style="z-index:0;">+</a>
           <h3>{{workout.title}}</h3>
         </header>
-
+<!--
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -40,7 +40,7 @@
           </div>
           </div>
           </div>
-          </div>
+          </div>-->
 
         <div class="w3-container w3-display-top-left">
           <hr>
@@ -61,7 +61,7 @@
               <br>
               <label>&emsp;Lifting Exercise: {{workout.liftingname}} </label>
               <br>
-              <label> <font size="2"> &emsp; &emsp;&emsp; Sets: {{workout.sets}} </font></label>
+              <label> <font size="2"> &emsp;&emsp;&emsp; Sets: {{workout.sets}} </font></label>
               <br>
               <label> <font size="2">  &emsp;&emsp;&emsp; Reps: {{workout.reps}} </font></label>
 
