@@ -24,6 +24,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.dashboardService.getUserWorkouts().subscribe(workoutsArray => {
       this.userWorkouts = workoutsArray.workouts;
+      console.log(this.userWorkouts);
     })
   }
 
