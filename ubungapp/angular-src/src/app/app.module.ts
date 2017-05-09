@@ -25,7 +25,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { WorkoutsService } from './services/workouts.service';
 import { GymService } from './services/gym.service';
 import { ReviewsService } from './services/reviews.service';
-import { DashboardService } from './services/dashboard.service'
+import { DashboardService } from './services/dashboard.service';
+import { AboutUsComponent } from './components/about-us/about-us.component'
 
 
 const appRoutes: Routes = [
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'workouts', component: WorkoutsComponent },
   { path: 'gyms/:address', component: GymComponent },
+  { path: 'about-us', component: AboutUsComponent },
   { path: 'reg-workout', component: RegWorkoutComponent },
   {
     path: 'workouts/:_id/reviews',
@@ -61,7 +63,8 @@ const appRoutes: Routes = [
     GymComponent,
     RegWorkoutComponent,
     ReviewComponent,
-    RegReviewComponent
+    RegReviewComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

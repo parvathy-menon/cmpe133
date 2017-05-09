@@ -26,6 +26,7 @@ const reviews = require('./routes/reviews');
 const workouts = require('./routes/workouts');
 const gyms = require('./routes/gyms');
 const profiles = require('./routes/profiles');
+//const aboutUs = require('./routes/about-us')
 
 //Port number
 const port = 3000;

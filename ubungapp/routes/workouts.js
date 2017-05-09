@@ -37,7 +37,6 @@ router.post('/create', passport.authenticate('jwt', {session:false}),(req, res, 
 
 //search workout by title
 router.get('/workout/:title', (req,res) => {
-  console.log(workout);
   Workout.find({title: {"$regex": req.params.title, "$options": "i"}}, function(err, workout){
     if (err) console.log(err);
     res.json({success:true, msg: workout});
